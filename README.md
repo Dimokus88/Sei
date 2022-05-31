@@ -71,15 +71,15 @@ We are waiting for the completion of the deployment.
 
 <div align="center">
   
-![image](https://user-images.githubusercontent.com/23629420/171126372-81330266-8f01-47a9-a85e-68d1e2ada758.png)
+![image](https://user-images.githubusercontent.com/23629420/171269920-572ee8c5-5e9b-4b3f-b7a6-56f704200d7a.png)
   
 </div>
 
-* In the ```SHELL``` tab, run the command```cat /root/.sei/config/priv_validator_key.json```, save the answer in a file```priv_validator_key``` with extension```.json```.
+* In the ```SHELL``` tab, run the command```cat /root/.sei-chain/config/priv_validator_key.json```, save the answer in a file```priv_validator_key``` with extension```.json```.
 
 <div align="center">
   
-![image](https://user-images.githubusercontent.com/23629420/171126676-cf1a436e-ca56-43f6-ae53-66608d812534.png)
+![image](https://user-images.githubusercontent.com/23629420/171270286-4d33c89d-64c8-4807-b8a1-ca853163fd42.png)
   
 </div>
 
@@ -198,7 +198,6 @@ We are waiting for the completion of the deployment.
 
 ![image](https://user-images.githubusercontent.com/23629420/165608527-da85c84e-edcc-4b15-8843-441d3e76dcb6.png)
 
-
 * Выбираем подходящий для нас по цене и оборудованию. После чего нажимаем ```ACCEPT BID```.
 
 Ждем заверщения развертывания.
@@ -207,15 +206,15 @@ We are waiting for the completion of the deployment.
 
 <div align="center">
   
-![image](https://user-images.githubusercontent.com/23629420/171126372-81330266-8f01-47a9-a85e-68d1e2ada758.png)
+![image](https://user-images.githubusercontent.com/23629420/171269962-0010a5be-8e45-4dec-a7c9-156fcaedf1cc.png)
   
 </div>
 
-* Во вкладке ```SHELL``` выполните команду ```cat /root/.sei/config/priv_validator_key.json```, ответ сохраните в файле ```priv_validator_key``` с расширением ```.json```.
+* Во вкладке ```SHELL``` выполните команду ```cat /root/.sei-chain/config/priv_validator_key.json```, ответ сохраните в файле ```priv_validator_key``` с расширением ```.json```.
 
 <div align="center">
   
-![image](https://user-images.githubusercontent.com/23629420/171126676-cf1a436e-ca56-43f6-ae53-66608d812534.png)
+![image](https://user-images.githubusercontent.com/23629420/171270347-472f6652-e624-4e9c-bd5f-2655c3f12a97.png)
   
 </div>
 
