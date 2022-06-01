@@ -4,22 +4,7 @@
 #=============by Dimokus=============
 #========https://t.me/Dimokus========
 #====================================
-ver="1.18.1" && \
-wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz" && \
-sudo rm -rf /usr/local/go && \
-sudo tar -C /usr/local -xzf "go$ver.linux-amd64.tar.gz" && \
-rm "go$ver.linux-amd64.tar.gz" && \
-echo "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin" >> $HOME/.bash_profile && \
-source $HOME/.bash_profile && \
-go version
-git clone https://github.com/sei-protocol/sei-chain.git && cd sei-chain
-git checkout 1.0.0beta
-go build -o build/seid ./cmd/sei-chaind/
-
-mv build/seid /usr/bin/seid
-
-seid version --long
-#======================================================== НАЧАЛО БЛОКА ФУНКЦИЙ ========================================================
+#======================================================== НАЧАЛО БЛОКА ФУНКЦИЙ ===========================================================================================
 #||||||||ФУНКЦИЯ СИНХРОНИЗАЦИИ||||||||
 SYNH(){
 	if [[ -z `ps -o pid= -p $nodepid` ]]
@@ -54,12 +39,10 @@ SYNH(){
 	echo ===========================
 	date
 	source $HOME/.bashrc
-
 }
 #||||||||||||||||||||||||||||||||||||||
 
-#||||||||ФУНКЦИЯ РАБОЧЕГО РЕЖИМА НОДЫ||||||||
-
+#*******************ФУНКЦИЯ РАБОЧЕГО РЕЖИМА НОДЫ|*************************
 WORK (){
 while [[ $synh == false ]]
 do		
@@ -80,8 +63,13 @@ do
 	echo =================================================
 	echo =============Проверка баланса...=================
 	echo =================================================
+	
+	#+++++++++++++++++++++++++++АВТОДЕЛЕГИРОВАНИЕ++++++++++++++++++++++++
 	balance=`curl -s https://sei.api.explorers.guru/api/accounts/$address/balance | jq .spendable.amount`
-	echo Ваш баланс: $balance usei
+	echo =============================
+	echo ==Ваш баланс: $balance usei==
+	echo = Your balance $balance usei=
+	echo =============================
 	sleep 5
 	if [[ `echo $balance` -gt 1000000 ]]
 	then
@@ -95,15 +83,32 @@ do
 		(echo ${PASSWALLET}) | seid tx staking delegate $valoper ${stake}usei --from $address --chain-id sei-testnet-1 --fees 5000usei -y
 		sleep 5
 		balance=0
-	else
-		echo ======================================================================
-		echo ==================Insufficient balance to delegate====================
-		echo ======================================================================
-		echo ======================================================================
-		echo ==============Недостаточный баланс для делегирования==================
-		echo ======================================================================
 	fi
+	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+	#===============СБОР НАГРАД И КОМИССИОННЫХ===================
+	reward==`curl -s https://sei.api.explorers.guru/api/accounts/$address/balance | jq .spendable.reward`
+	echo ==============================
+	echo ==Ваши награды: $reward usei==
+	echo ===Your reward $reward usei===
+	echo ==============================
+	sleep 5
+		if [[ `echo $reward` -gt 1000000 ]]
+	then
+		echo =============================================================
+		echo ============Rewards discovered, collecting...================
+		echo =============================================================
+		echo =============================================================
+		echo =============Обнаружены награды, собираю...==================
+		echo =============================================================
+		(echo ${PASSWALLET}) | seid tx distribution withdraw-rewards $valoper --from $address --fees 5555usei --commission -y
+		reward=0
+		sleep 5
+	fi
+	#============================================================
 	synh=`curl -s localhost:26657/status | jq .result.sync_info.catching_up`
+	
+	#--------------------------ВЫХОД ИЗ ТЮРЬМЫ--------------------------
 	jailed=`curl -s https://sei.api.explorers.guru/api/validators/$valoper | jq -r .jailed`
 	while [[  $jailed == true ]] 
 	do
@@ -114,11 +119,26 @@ do
 		sleep 10
 		jailed=`curl -s https://sei.api.explorers.guru/api/validators/$valoper | jq -r .jailed`
 	done
+	#-------------------------------------------------------------------
 done
 }
-#||||||||||||||||||||||||||||||||||||||
+#************************************************************************************************************************
 
-#======================================================== КОНЕЦ БЛОКА ФУНКЦИЙ ========================================================
+#======================================================== КОНЕЦ БЛОКА ФУНКЦИЙ ====================================================================================
+
+ver="1.18.1" && \
+wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz" && \
+sudo rm -rf /usr/local/go && \
+sudo tar -C /usr/local -xzf "go$ver.linux-amd64.tar.gz" && \
+rm "go$ver.linux-amd64.tar.gz" && \
+echo "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin" >> $HOME/.bash_profile && \
+source $HOME/.bash_profile && \
+go version
+git clone https://github.com/sei-protocol/sei-chain.git && cd sei-chain
+git checkout 1.0.0beta
+go build -o build/seid ./cmd/sei-chaind/
+mv build/seid /usr/bin/seid
+seid version --long
 
 echo 'export my_root_password='${my_root_password}  >> $HOME/.bashrc
 echo 'export MONIKER='${MONIKER} >> $HOME/.bashrc
@@ -177,6 +197,7 @@ wget -O /var/www/html/priv_validator_key.json ${LINK_KEY}
 file=/var/www/html/priv_validator_key.json
 
 source $HOME/.bashrc
+#---проверка наличия пользовательского priv_validator_key---
 if  [[ -f "$file" ]]
 then
 	cd /
@@ -187,7 +208,6 @@ then
 	echo ==========Сверьте файл priv_validator_key.json============
 	cat /root/.sei-chain/config/priv_validator_key.json
 	sleep 5
-
 
 else
 	echo =====================================================================
@@ -209,7 +229,7 @@ else
 	
 	sleep infinity
 fi
-# ------------------------------------
+# -----------------------------------------------------------
 
 seid config chain-id sei-testnet-1
 
@@ -276,7 +296,9 @@ s|^(seeds[[:space:]]+=[[:space:]]+).*$|\1\"\"|" $HOME/.sei-chain/config/config.t
 echo RPC
 sleep 5
 fi
-# ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+#================================================
+# |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
 val=`curl -s https://sei.api.explorers.guru/api/validators/$valoper | jq -r .description.moniker`
 echo $val
 sleep 10
