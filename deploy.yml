@@ -9,7 +9,7 @@ services:
     env:
      - "my_root_password=" # пароль root для подключения по ssh
      - "MONIKER=" # имя ноды
-     - "MNEMONIC=" # seed фраза от тестового кошелька с defund
+     - "MNEMONIC=" # seed фраза от кошелька sei
      #- "LINK_KEY=" # ссылка на размещенный pirv-validator_key.json (прямое скачивание).
      - "LINK_ADDRBOOK=https://raw.githubusercontent.com/sei-protocol/testnet/master/sei-testnet-1/addrbook.json"
      #- "SNAP_RPC="
