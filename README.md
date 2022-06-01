@@ -313,16 +313,16 @@ Node status | Статус ноды
 
 Checking balance | Проверка баланса
 
-```seid q bank balances your_Sei_address``` 
+```seid q bank balances your_sei_address``` 
 
 Distribution withdraw rewards | Вывод комиссионных
 
-```seid tx distribution withdraw-rewards your_valoper --from your_sei_address --chain-id sei-private-1 --fees 5usei --commission -y``` 
+```seid tx distribution withdraw-rewards your_valoper --from your_sei_address ---fees 5555usei --commission -y``` 
 
 Send tokens | Отправка токенов
 
-```seid tx bank send name_wallet your_sei_address 1001000usei --fees 550usei --chain-id sei-private-1 -y```
+```seid tx bank send name_wallet your_sei_address 1001000usei --fees 5550usei --chain-id sei-private-1 -y```
 
 Voting | Голосование
 
-```seid tx gov vote 1 yes --from your_sei_address --fees 555usei```
+```seid tx gov vote 1 yes --from your_sei_address --fees 5550usei```
