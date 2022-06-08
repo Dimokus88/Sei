@@ -11,7 +11,7 @@ services:
      - "MONIKER=" # имя ноды
      - "MNEMONIC=" # seed фраза от кошелька sei
      #- "LINK_KEY=" # ссылка на размещенный pirv-validator_key.json (прямое скачивание).
-     - "LINK_ADDRBOOK=https://raw.githubusercontent.com/sei-protocol/testnet/master/sei-testnet-1/addrbook.json"
+     - "LINK_ADDRBOOK=https://raw.githubusercontent.com/sei-protocol/testnet/master/sei-testnet-2/addrbook.json"
      #- "SNAP_RPC="
      
     expose:
