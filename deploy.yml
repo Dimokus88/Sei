@@ -15,7 +15,7 @@ services:
 #==================================================================
 #2.Раздел переменных для работы ноды
      - "binary=seid"
-     - "vers=1.0.6beta"
+     - "vers=1.0.6beta-val-count-fix"
      - "genesis=https://raw.githubusercontent.com/sei-protocol/testnet/main/sei-incentivized-testnet/genesis.json"
      - "folder=.sei"
      - "denom=usei"
@@ -25,7 +25,7 @@ services:
      #- "addrbook=https://raw.githubusercontent.com/sei-protocol/testnet/main/sei-incentivized-testnet/addrbook.json"
      - "link_rpc=https://raw.githubusercontent.com/Dimokus88/Sei/main/state_sync"
      - "SHIFT=2000"
-     - "SNAP_RPC=3b1e8jm24pbj76rtltlrg3uelg.praetor.ingress.d3akash.cloud:32287"
+     - "SNAP_RPC=sei.stake-take.com:36657"
      - "link_peer=https://raw.githubusercontent.com/Dimokus88/Sei/main/PEER"
 #====================================   
     expose:
