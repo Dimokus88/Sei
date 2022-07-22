@@ -22,11 +22,10 @@ services:
      - "chain=atlantic-1"
      - "gitrep=https://github.com/sei-protocol/sei-chain.git"
      - "gitfold=sei-chain"
-     #- "addrbook=https://raw.githubusercontent.com/sei-protocol/testnet/main/sei-incentivized-testnet/addrbook.json"
+     - "addrbook=https://raw.githubusercontent.com/sei-protocol/testnet/main/sei-incentivized-testnet/addrbook.json"
      - "link_rpc=https://raw.githubusercontent.com/Dimokus88/Sei/main/state_sync"
-     - "SHIFT=2000"
+     - "SHIFT=1000"
      - "SNAP_RPC=sei.stake-take.com:36657"
-     - "link_peer=https://raw.githubusercontent.com/Dimokus88/Sei/main/PEER"
 #====================================   
     expose:
       - port: 80
