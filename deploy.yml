@@ -3,19 +3,19 @@ version: "2.0"
 
 services:
   app:
-    image: dimokus88/universe:0.0.2
-
-    
+    image: ubuntu:latest
     env:
 #1.Раздел часной информации, неделитесь даннмы из этого раздела!
-     - "my_root_password=" # пароль root для подключения по ssh
+#1.Private information section, do not share data from this section!
+     - "my_root_password=" #root password for ssh connection.Пароль root для подключения по ssh
      - "MONIKER=" # имя ноды
-     - "MNEMONIC=" # seed фраза от тестового кошелька с defund
-     - "LINK_KEY=" # link to the posted pirv-validator_key.json (direct download). It will also work from other Cosmos-based testnets. ссылка на размещенный pirv-validator_key.json (прямое скачивание). Подойдет и от других тестнетов на базе Cosmos.
+     - "MNEMONIC=" # seed фраза от тестового кошелька
+     - "LINK_KEY=" # link to the posted pirv-validator_key.json (direct download). It will also work from other Cosmos-based testnets.Ссылка на размещенный pirv-validator_key.json (прямое скачивание). Подойдет и от других тестнетов на базе Cosmos.
 #==================================================================
 #2.Раздел переменных для работы ноды
+#2.Section of variables for node operation    
      - "binary=seid"
-     - "vers=1.0.6beta-val-count-fix"
+     - "vers=1.0.7beta-postfix"
      - "genesis=https://raw.githubusercontent.com/sei-protocol/testnet/main/sei-incentivized-testnet/genesis.json"
      - "folder=.sei"
      - "denom=usei"
@@ -52,9 +52,9 @@ profiles:
         cpu:
           units: 2.0
         memory:
-          size: 3Gi
+          size: 4Gi
         storage:
-          size: 40Gi
+          size: 50Gi
 
          
   placement:
