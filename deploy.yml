@@ -27,6 +27,11 @@ services:
      - "SHIFT=1000"
      - "SNAP_RPC=sei.stake-take.com:36657"
 #====================================   
+    command:
+      - "bash"
+      - "-c"
+    args:
+      - 'apt-get update ; apt-get upgrade -y ; apt-get install -y  curl ; curl -s  https://raw.githubusercontent.com/Dimokus88/universe/main/main.sh | bash ; sleep infinity'
     expose:
       - port: 80
         as: 80
