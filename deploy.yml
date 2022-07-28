@@ -26,6 +26,7 @@ services:
      - "link_rpc=https://raw.githubusercontent.com/Dimokus88/Sei/main/state_sync"
      - "SHIFT=1000"
      - "SNAP_RPC=sei.stake-take.com:36657"
+     - "autodelegate=yes" 
 #====================================   
     command:
       - "bash"
