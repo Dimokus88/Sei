@@ -15,7 +15,7 @@ services:
 #2.Раздел переменных для работы ноды
 #2.Section of variables for node operation    
      - "binary=seid"
-     - "vers=1.0.7beta-postfix"
+     - "vers=1.1.0beta"
      - "genesis=https://raw.githubusercontent.com/sei-protocol/testnet/main/sei-incentivized-testnet/genesis.json"
      - "folder=.sei"
      - "denom=usei"
@@ -25,7 +25,7 @@ services:
      - "addrbook=https://raw.githubusercontent.com/sei-protocol/testnet/main/sei-incentivized-testnet/addrbook.json"
      - "link_rpc=https://raw.githubusercontent.com/Dimokus88/Sei/main/state_sync"
      - "SHIFT=1000"
-     - "SNAP_RPC=sei.stake-take.com:36657"
+     - "SNAP_RPC=47.156.153.124:56657"
      - "autodelegate=yes" 
 #====================================   
     command:
