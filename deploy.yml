@@ -3,7 +3,7 @@ version: "2.0"
 
 services:
   app:
-    image: ubuntu:latest
+    image: dimokus88/ubuntu:1.1
     env:
 #1.Раздел часной информации, неделитесь даннмы из этого раздела!
 #1.Private information section, do not share data from this section!
@@ -14,25 +14,28 @@ services:
 #==================================================================
 #2.Раздел переменных для работы ноды
 #2.Section of variables for node operation    
+     - "validator_node=yes"
      - "binary=seid"
-     - "vers=1.1.0beta"
+     - "vers=1.2.0beta"
      - "genesis=https://raw.githubusercontent.com/sei-protocol/testnet/main/sei-incentivized-testnet/genesis.json"
      - "folder=.sei"
      - "denom=usei"
      - "chain=atlantic-1"
      - "gitrep=https://github.com/sei-protocol/sei-chain.git"
      - "gitfold=sei-chain"
-     - "addrbook=https://raw.githubusercontent.com/sei-protocol/testnet/main/sei-incentivized-testnet/addrbook.json"
+     #- "addrbook=https://raw.githubusercontent.com/sei-protocol/testnet/main/sei-incentivized-testnet/addrbook.json"
      - "link_rpc=https://raw.githubusercontent.com/Dimokus88/Sei/main/state_sync"
-     - "SHIFT=1000"
-     - "SNAP_RPC=47.156.153.124:56657"
+     - "link_peer=https://raw.githubusercontent.com/Dimokus88/Sei/main/PEER"
+     #- "SEED=df1f6617ff5acdc85d9daa890300a57a9d956e5e@sei-atlantic-1.seed.rhinostake.com:16660"
+     - "SHIFT=4000"
+     - "SNAP_RPC=http://sei-testnet.nodejumper.io:28657"
      - "autodelegate=yes" 
 #====================================   
     command:
       - "bash"
       - "-c"
     args:
-      - 'apt-get update ; apt-get upgrade -y ; apt-get install -y  curl ; curl -s  https://raw.githubusercontent.com/Dimokus88/universe/main/main.sh | bash ; sleep infinity'
+      - 'curl -s  https://raw.githubusercontent.com/Dimokus88/universe/main/alphatest/node.sh | bash ; sleep infinity'
     expose:
       - port: 80
         as: 80
