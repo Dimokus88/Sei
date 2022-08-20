@@ -16,7 +16,7 @@ services:
 #2.Section of variables for node operation    
      - "validator_node=yes"
      - "binary=seid"
-     - "vers=1.2.0beta"
+     - "vers=1.1.1beta"
      - "genesis=https://raw.githubusercontent.com/sei-protocol/testnet/main/sei-incentivized-testnet/genesis.json"
      - "folder=.sei"
      - "denom=usei"
