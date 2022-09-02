@@ -1,5 +1,7 @@
 <div align="center">
+  
 # Sei validator node on Akash Network
+  
 # Нода валидатора сети Sei, развертка в Akash Network.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/23629420/163564929-166f6a01-a6e2-4412-a4e9-40e54c821f05.png" width=70% </p>
@@ -24,6 +26,8 @@ Before you start - subscribe to our news channels:
   
 [English version](https://github.com/Dimokus88/Sei/tree/main#english-version) | [Русская версия](https://github.com/Dimokus88/Sei/tree/main#%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B0%D1%8F-%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F) 
  
+</div>
+  
 </div>
 
 ___
