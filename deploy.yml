@@ -14,7 +14,7 @@ services:
 #2.Раздел переменных для работы ноды
 #2.Section of variables for node operation"
      - "binary=seid"
-     - "vers=1.1.1beta"
+     - "vers=1.1.3beta"
      - "genesis=https://raw.githubusercontent.com/sei-protocol/testnet/main/sei-incentivized-testnet/genesis.json"
      - "folder=.sei"
      - "denom=usei"
