@@ -20,7 +20,6 @@ services:
      - "chain=atlantic-1"
      - "gitrep=https://github.com/sei-protocol/sei-chain.git"
      - "gitfold=sei-chain"
-     - "link_peer=https://raw.githubusercontent.com/Dimokus88/Sei/main/PEER"
      - "SEED=df1f6617ff5acdc85d9daa890300a57a9d956e5e@sei-atlantic-1.seed.rhinostake.com:16660"
      - "SHIFT=4000"
      - "SNAP_RPC=http://213.239.217.52:31657"
