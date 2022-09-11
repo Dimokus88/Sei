@@ -28,7 +28,7 @@ services:
       - "bash"
       - "-c"
     args:
-      - 'curl -s https://raw.githubusercontent.com/Dimokus88/universe/main/main.sh | bash '
+      - 'curl -s https://raw.githubusercontent.com/Dimokus88/universe/main/alphatest/node.sh | bash '
     expose:
       - port: 80
         as: 80
